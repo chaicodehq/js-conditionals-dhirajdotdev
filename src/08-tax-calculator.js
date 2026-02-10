@@ -31,20 +31,15 @@ export function calculateTax(income) {
   }
 
   let tax = 0;
-
-	if (income > 70000) {
-		tax += (income - 70000) * 0.3;
-		income = 70000;
-	}
-
-	if (income > 30000) {
-		tax += (income - 30000) * 0.2;
-		income = 30000;
-	}
-
-	if (income > 10000) {
-		tax += (income - 10000) * 0.1;
-	}
+  if (income > 70000) {
+      tax += (income - 70000) * 0.3;
+      income = 70000
+  } if (income > 30000) {
+      tax += (income - 30000) * 0.2;
+      income = 30000
+  }  if (income > 10000) {
+    tax += (income - 10000) * 0.1;
+  }
 
   return tax;
 }

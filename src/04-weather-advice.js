@@ -28,14 +28,14 @@ export function getWeatherAdvice(temperature, isRaining) {
   } else if (temperature >= 25 && isRaining) {
     return "Warm but rainy - consider indoor activities";
   } else if (temperature >= 15 && !isRaining) {
-    return "Perfect hiking weather - enjoy the trails";
+   return "Perfect hiking weather - enjoy the trails";
   } else if (temperature >= 15 && isRaining) {
     return "Cool and rainy - bring waterproof gear if hiking";
   } else if (temperature >= 5 && !isRaining) {
     return "Chilly - wear layers for your hike";
   } else if (temperature >= 5 && isRaining) {
-    return "Cold and wet - best to stay indoors";
-  } else {
-    return "Too cold - stay warm indoors";
+    return "Cold and wet - best to stay indoors"
+  } else{
+    return "Too cold - stay warm indoors"
   }
 }

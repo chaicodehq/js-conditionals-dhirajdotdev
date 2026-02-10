@@ -30,20 +30,20 @@ export function calculateGrade(score, hasExtraCredit) {
   }
   if (hasExtraCredit) {
     score += 5;
-    if (score > 100) {
-      score = 100;
-    }
   }
-
+  if (score > 100) {
+    score = 100;
+  }
+  let result;
   if (score <= 59) {
-    return "F";
+    result = "F";
   } else if (score <= 69) {
-    return "D";
+    result = "D";
   } else if (score <= 79) {
-    return "C";
+    result = "C";
   } else if (score <= 89) {
-    return "B";
-  } else if (score <= 100) {
-    return "A";
-  }
+    result = "B";
+  } else if(score <= 100)
+    result = "A";
+  return result
 }

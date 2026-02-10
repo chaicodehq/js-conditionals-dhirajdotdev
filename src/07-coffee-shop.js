@@ -31,49 +31,52 @@
  * @returns {number} Total price or -1 for invalid input
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
-  if (size !== "small" && size !== "medium" && size !== "large") {
+  if (
+    size.toLocaleLowerCase() !== "small" &&
+    size.toLocaleLowerCase() !== "medium" &&
+    size.toLocaleLowerCase() !== "large"
+  ) {
     return -1;
   }
+
   if (
-    type !== "regular" &&
-    type !== "latte" &&
-    type !== "cappuccino" &&
-    type !== "mocha"
+    type.toLocaleLowerCase() !== "regular" &&
+    type.toLocaleLowerCase() !== "latte" &&
+    type.toLocaleLowerCase() !== "cappuccino" &&
+    type.toLocaleLowerCase() !== "mocha"
   ) {
     return -1;
   }
 
   let price = 0;
-
-  if (size === "small") {
+  if (size.toLocaleLowerCase() === "small") {
     price += 3.0;
-  }
-  if (size === "medium") {
+  } else if (size.toLocaleLowerCase() === "medium") {
     price += 4.0;
-  }
-  if (size === "large") {
-    price += 5;
+  } else if (size.toLocaleLowerCase() === "large") {
+    price += 5.0;
   }
 
-  if (type === "regular") {
+  if (type.toLocaleLowerCase() === "regular") {
     price += 0.0;
   }
-  if (type === "latte") {
+ else if (type.toLocaleLowerCase() === "latte") {
     price += 1.0;
   }
-  if (type === "cappuccino") {
+ else if (type.toLocaleLowerCase() === "cappuccino") {
     price += 1.5;
   }
-  if (type === "mocha") {
+ else if (type.toLocaleLowerCase() === "mocha") {
     price += 2.0;
   }
 
   if (extras.whippedCream) {
-    price += 0.5;
+  price += 0.5;
   }
+  
   if (extras.extraShot) {
-    price += 0.75;
+    price += 0.75
   }
 
-  return Math.round(price * 100) / 100;
+return Number(price.toFixed(2))
 }
